@@ -12,22 +12,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import DTO.AlbumDTO;
+import Entity.Album;
+import Repository.AlbumRepository;
+
 @RestController
 @RequestMapping("/Album")
-public class AlbumController {
+public class ArtistController {
 	
 	@Autowired
 	private AlbumRepository albumRepository;
 
 	@GetMapping()
-	public Iterable<Album> findAll() {
+	public Iterable<AlbumDTO> findAll() {
 		return albumRepository.findAll();
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public Album create(@RequestBody Album album) {
-		return albumRepository.save(album);
+		return AlbumRepository.saveAll(album);
 	}
 
 	@DeleteMapping("/{id}")
@@ -42,7 +46,7 @@ public class AlbumController {
 			throw new IllegalArgumentException();
 		}
 		albumRepository.findByAlbumName(albumname).orElseThrow(IllegalArgumentException::new);
-		return albumRepository.save(album);
+		return AlbumRepository.saveAll(album);
 
 
 	}

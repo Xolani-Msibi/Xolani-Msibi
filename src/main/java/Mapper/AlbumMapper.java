@@ -1,6 +1,8 @@
-package com.example.demo;
+package Mapper;
 
 
+
+import org.springframework.web.bind.annotation.Mapping;
 
 import com.example.demo.Album;
 import com.example.demo.AlbumDTO;
