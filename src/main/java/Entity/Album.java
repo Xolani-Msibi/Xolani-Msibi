@@ -31,7 +31,7 @@ public class Album extends Artist {
 	}
 
 
-	public void setAlbumName(String albumName) {
+	public static void setAlbumName(String albumName) {
 		AlbumName = albumName;
 	}
 
